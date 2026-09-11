@@ -1,5 +1,19 @@
-import { VercelRequest, VercelResponse } from "@vercel/node";
+import express from "express";
+import path from "path";
+import { fileURLToPath } from "url";
+import dotenv from "dotenv";
 import { GoogleGenAI } from "@google/genai";
+import { createServer as createViteServer } from "vite";
+
+dotenv.config();
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+const app = express();
+const PORT = 3000;
+
+app.use(express.json());
 
 // Helper for procedural contextual fallback if Gemini is offline/unconfigured
 function generateProceduralAnalysis(data: {
@@ -115,11 +129,8 @@ function generateProceduralAnalysis(data: {
   };
 }
 
-export default async function handler(req: VercelRequest, res: VercelResponse) {
-  if (req.method !== "POST") {
-    return res.status(405).json({ error: "Method not allowed. Use POST." });
-  }
-
+// API Routes
+app.post("/api/analyze-incident", async (req, res) => {
   const { incidentText, category, timeElapsed, actor, initialPanic, symptoms } = req.body || {};
 
   if (!incidentText || typeof incidentText !== "string" || incidentText.trim().length === 0) {
@@ -224,7 +235,7 @@ JSON format requirements:
       const responseText = response.text?.trim();
       if (responseText) {
         const parsed = JSON.parse(responseText);
-        return res.status(200).json({ source: "gemini", data: parsed });
+        return res.json({ source: "gemini", data: parsed });
       }
     } catch (err) {
       console.warn("Gemini call failed or timed out, using high-fidelity procedural engine:", err);
@@ -241,5 +252,27 @@ JSON format requirements:
     symptoms: Array.isArray(symptoms) ? symptoms : []
   });
 
-  return res.status(200).json({ source: "procedural", data: fallback });
+  return res.json({ source: "procedural", data: fallback });
+});
+
+async function startServer() {
+  if (process.env.NODE_ENV !== "production") {
+    const vite = await createViteServer({
+      server: { middlewareMode: true },
+      appType: "spa",
+    });
+    app.use(vite.middlewares);
+  } else {
+    const distPath = path.join(process.cwd(), "dist");
+    app.use(express.static(distPath));
+    app.get("*", (req, res) => {
+      res.sendFile(path.join(distPath, "index.html"));
+    });
+  }
+
+  app.listen(PORT, "0.0.0.0", () => {
+    console.log(`Overthinking Calculator server running on http://0.0.0.0:${PORT}`);
+  });
 }
+
+startServer();

@@ -1,0 +1,6 @@
+{
+  "name": "Incident Overthinking Calculator",
+  "description": "Analyze and overthink any incident with customized interpretations, forensic breakdowns, doom metrics, and panic sound effects.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

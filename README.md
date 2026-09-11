@@ -58,7 +58,8 @@ For Software:
 )
 *SECOND PAGE OF THE PROJECT ,that shows intrepretation*
 
-![Screenshot3](![<img width="1082" height="810" alt="Overthinking cal (3) IMG" src="https://github.com/user-attachments/assets/91537325-3e11-4aea-9c91-f6ac8ac59ce8" />
+![Screenshot3](<img width="1082" height="810" alt="Overthinking cal (3) IMG" src="https://github.com/user-attachments/assets/9aa3151a-60b7-40c6-a462-dcf2c67a631c" />
+
 ]()
 
 )

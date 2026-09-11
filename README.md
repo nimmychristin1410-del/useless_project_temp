@@ -49,15 +49,17 @@ cd overthinking-calculator]
 For Software:
 
 # Screenshots (Add at least 3)
-![Screenshot1](<img width="1106" height="847" alt="ovrthinking cal (1) IMG" src="https://github.com/user-attachments/assets/3d374bc5-fc42-47d5-9e61-f342f0969cb5" />
-)
+![Screenshot1](<img width="1106" height="847" alt="ovrthinking cal (1) IMG" src="https://github.com/user-attachments/assets/9d1bcb9c-7432-4e6a-8be9-3fc164fd89d6" />
+
 *FIRST PAGE OF THE PROJECT*
 
-![Screenshot2](<img width="1097" height="832" alt="OVERTHINKING CAL (2) IMG" src="https://github.com/user-attachments/assets/eb041c69-ce4e-4831-85cd-aed982e00083" />
+![Screenshot2](<img width="1097" height="832" alt="OVERTHINKING CAL (2) IMG" src="https://github.com/user-attachments/assets/33e78197-0b1f-4f02-b052-3092722eac97" />
+
 )
 *SECOND PAGE OF THE PROJECT ,that shows intrepretation*
 
-![Screenshot3](<img width="1082" height="810" alt="Overthinking cal (3) IMG" src="https://github.com/user-attachments/assets/390836e1-33d6-42ed-b8b1-8ed3fdd8e6df" />
+![Screenshot3](![Uploading Overthinking cal (3).IMG.png…]()
+
 )
 *Third page of project,that shows the problem analyazing *
 

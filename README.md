@@ -43,7 +43,9 @@ For Software:
 cd overthinking-calculator]
 
 # Run
-[commands]
+```
+npm run dev
+```
 
 ### Project Documentation
 For Software:
